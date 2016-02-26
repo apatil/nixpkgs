@@ -104,7 +104,7 @@ self: super:
          base template-haskell ghcjs-base split containers text ghc-prim
        ];
        description = "FFI QuasiQuoter for GHCJS";
-       license = stdenv.lib.licenses.mit;
+       license = pkgs.stdenv.lib.licenses.mit;
      }) {};
 
   ghcjs-dom = overrideCabal super.ghcjs-dom (drv: {
