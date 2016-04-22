@@ -50,9 +50,9 @@ in stdenv.mkDerivation {
     (cd tools/gyp; patch -Np1 -i ${../../python-modules/gyp/no-darwin-cflags.patch})
   '';
 
-  buildInputs = [ python which ]
+  buildInputs = [ python which openssl zlib ]
     ++ (optional stdenv.isLinux utillinux)
-    ++ optionals stdenv.isDarwin [ pkgconfig openssl libtool CoreServices ApplicationServices Foundation ];
+    ++ optionals stdenv.isDarwin [ pkgconfig libtool CoreServices ApplicationServices Foundation ];
   propagatedBuildInputs = optionals stdenv.isDarwin [ Carbon ];
   setupHook = ./setup-hook.sh;
 
